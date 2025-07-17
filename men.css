@@ -1,26 +1,34 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #f0f0f0; /* A light background for the page */
+    background-color: #f0f0f0;
+}
+
+/* Center all main elements on the page */
+.main-header,
+.product-listing {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: auto;
+    left: auto;
 }
 
 .main-header {
     width: 1022px;
     height: 523px;
-    position: absolute;
-    top: 117px;
-    left: 71px;
-    background-image: url('image/big\ picture.png'); /* Changed to your file name */
+    margin-top: 117px;
+    background-image: url('image/background.PNG');
     background-size: cover;
     background-position: center;
     display: flex;
-    align-items: center; /* Vertically center content */
-    padding-left: 102px; /* To align text as per the image */
-    box-sizing: border-box; /* Include padding in the width/height */
+    align-items: center;
+    padding-left: 102px;
+    box-sizing: border-box;
 }
 
 .header-content {
-    /* No specific styles beyond the text styles, as the parent handles positioning */
+    /* No specific styles needed here */
 }
 
 .main-header h1 {
@@ -51,10 +59,8 @@ body {
 }
 
 .product-listing {
-    position: absolute;
-    top: 650px;
-    left: 71px;
     width: 1022px;
+    margin-top: 50px;
     padding-bottom: 50px;
 }
 
@@ -63,9 +69,6 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-    position: relative;
-    top: 53px;
-    left: 3px;
 }
 
 .filter-button {
@@ -73,7 +76,7 @@ body {
     height: 60px;
     border: 1px solid rgba(0, 0, 0, 0.45);
     border-radius: 10px;
-    background: #D9D9D9;
+    background: #fff;
     padding: 15px 46px;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -85,8 +88,6 @@ body {
 .sort-by {
     display: flex;
     align-items: center;
-    position: absolute;
-    left: 754px;
 }
 
 .sort-by span {
@@ -126,7 +127,7 @@ body {
 
 .product-item {
     width: 344px;
-    height: 344px;
+    height: 440px; 
     border: 1px solid #e0e0e0;
     box-sizing: border-box;
     display: flex;
@@ -138,15 +139,20 @@ body {
 
 .product-item img {
     width: 100%;
-    height: auto;
+    height: 344px;
     display: block;
+    object-fit: cover;
 }
 
 .product-details {
     padding: 15px;
+    /* Use position: relative for the button's positioning context */
+    position: relative;
+    /* Use flexbox to correctly align the text */
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    justify-content: flex-start; /* Aligns content to the top */
+    flex-grow: 1; /* Allows this container to take up the remaining space */
 }
 
 .clothing-type {
@@ -166,7 +172,7 @@ body {
     line-height: 100%;
     letter-spacing: 0%;
     color: #000000;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
 .quick-view-button {
@@ -174,14 +180,19 @@ body {
     height: 63px;
     border: 1px solid rgba(0, 0, 0, 0.27);
     padding: 19px 20px;
-    gap: 10px;
-    background-color: #CC7D7D;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 16px;
     cursor: pointer;
-    align-self: flex-end;
-    margin-top: auto;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Key changes for correct positioning */
+    position: absolute;
+    bottom: 15px; /* Aligns to the bottom of the parent */
+    right: 15px; /* Aligns to the right of the parent */
 }
