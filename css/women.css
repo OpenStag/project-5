@@ -1,0 +1,417 @@
+/* General Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poetsen One', sans-serif; /* Updated font-family as requested */
+    background-color: #f8f8f8; /* A soft, light background for the page */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main Content Wrapper */
+.main-content {
+    flex: 1; /* Allows main content to grow and push footer down */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers block-level children like hero, controls, grid */
+    padding: 20px 0 60px 0; /* Top/bottom padding for the entire content area */
+}
+
+/* --- HERO SECTION STYLES --- */
+.hero-section {
+    position: relative;
+    width: 90%; /* Fluid width for responsiveness */
+    max-width: 1092px; /* Max width as per your design */
+    height: 523px; /* Fixed height for the desktop view */
+    margin-top: 60px; /* Adjusted margin from top, allowing header space */
+    /* border-radius: 12px; Removed border-radius */
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* More prominent, softer shadow */
+    display: flex; /* To ensure image and overlay fill correctly */
+    align-items: center; /* Vertically center content if needed */
+    justify-content: center; /* Horizontally center content if needed */
+}
+
+.hero-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)); /* Stronger gradient for text contrast */
+    display: flex;
+    align-items: center;
+    padding-left: 8%; /* Responsive padding */
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Sharper text shadow */
+    z-index: 1; /* Ensure overlay is above image */
+}
+
+.hero-text-content {
+    max-width: 500px; /* Slightly increased max-width for text */
+    text-align: left;
+}
+
+.hero-title {
+    font-family: 'Abhaya Libre ExtraBold',serif;
+    font-size: 3.8em; /* Larger, more impactful heading */
+    font-weight: 800; /* Extra bold */
+    margin-bottom: 15px;
+    line-height: 1.1;
+    letter-spacing: -0.03em; /* Tighter letter spacing for large text */
+}
+
+.hero-subtitle {
+    font-family: 'PoetsenOne' ,cursive;
+    font-size: 1.3em; /* Slightly larger subtitle */
+    line-height: 1.6;
+    font-weight: 300; /* Lighter weight for contrast */
+    opacity: 0.9;
+}
+
+/* --- CONTROLS SECTION (FILTER/SORT) STYLES --- */
+.controls-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%; /* Fluid width */
+    max-width: 1200px; /* Max width for consistency */
+    margin-top: 40px; /* Spacing from hero section */
+    margin-bottom: 40px; /* Spacing to product grid */
+    background-color: white;
+    padding: 18px 30px; /* Increased padding */
+    /* border-radius: 10px; Removed border-radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px; /* Gap between filter button and sort options */
+}
+
+.filter-button {
+    width: auto;
+    height: 55px; /* Slightly reduced height for better proportion */
+    border: 1px solid #e0e0e0; /* Softer border color */
+    /* border-radius: 8px; Removed border-radius */
+    padding: 12px 35px; /* Adjusted padding */
+    background-color: white;
+    color: #333;
+    font-size: 17px; /* Slightly larger font */
+    font-weight: 600; /* Semibold */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none; /* Remove outline on focus */
+}
+
+.filter-button:hover {
+    border-color: #EC2C3C; /* Brand color on hover */
+    color: #EC2C3C;
+    box-shadow: 0 2px 8px rgba(236, 44, 60, 0.2); /* Subtle shadow on hover */
+}
+
+.sort-options {
+    display: flex;
+    gap: 15px; /* Increased gap between sort options */
+    align-items: center;
+    flex-wrap: wrap; /* Allow sort options to wrap */
+    justify-content: flex-end; /* Align to end if wrapped */
+}
+
+.sort-options span { /* "Sort by" text */
+    font-family: 'Poppins', sans-serif; /* Ensure Poppins is linked in HTML */
+    font-weight: 700;
+    font-size: 18px; /* Slightly smaller for better hierarchy */
+    line-height: 1.2;
+    color: #333; /* Dark grey for better contrast */
+}
+
+.sort-option-button { /* General style for all sort buttons */
+    background: none;
+    border: none;
+    color: #666; /* Softer color for inactive options */
+    font-size: 15px;
+    font-weight: 500; /* Medium weight */
+    cursor: pointer;
+    padding: 10px 15px; /* Consistent padding */
+    /* border-radius: 6px; Removed border-radius */
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.sort-option-button:hover:not(.active) {
+    background-color: #f0f0f0; /* Light background on hover */
+    color: #333;
+}
+
+/* NEWEST (ACTIVE) SORT BUTTON STYLES */
+.sort-option-button.active {
+    width: auto; /* Allow content to dictate width */
+    height: auto; /* Allow content to dictate height */
+    padding: 10px 20px; /* Adjusted padding for active state */
+    border: 1px solid rgba(0, 0, 0, 0.73); /* Changed to black border with 73% opacity */
+    background: white; /* Changed to white background */
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); /* Box shadow from the prompt */
+    color: #333; /* Default text color for this button, assuming it's black/dark grey */
+    font-weight: 600; /* Often active buttons are slightly bolder */
+    display: flex; /* To center text if needed within the fixed dimensions */
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- PRODUCT GRID AND CARD STYLES --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted min-width for more flexibility */
+    gap: 30px; /* Increased gap for better visual separation */
+    width: 90%; /* Fluid width */
+    max-width: 1200px; /* Max width for the entire grid */
+    padding: 0; /* Padding handled by .main-content */
+    margin-top: 20px; /* Spacing from controls section */
+    margin-bottom: 20px; /* Spacing before main-content padding */
+}
+
+.product-card {
+    width: 100%; /* Take full width of its grid column */
+    max-width: 340px; /* Max width for individual cards */
+    height: 400px; /* Increased height for better image/info ratio */
+    border: 1px solid #f0f0f0; /* Very light border */
+    background-color: white;
+    /* border-radius: 12px; Removed border-radius */
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); /* Soft, noticeable shadow */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-8px); /* Lift effect on hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+.product-card img {
+    width: 100%;
+    height: 65%; /* Image takes 65% of card height */
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-bottom: 1px solid #f5f5f5; /* Lighter separator */
+}
+
+.product-info {
+    padding: 15px 20px; /* More generous padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.product-name { /* Renamed from .product-title for clarity */
+    font-size: 1.2em; /* Slightly larger product name */
+    font-weight: 700; /* Bold */
+    color: #222; /* Darker text for name */
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-price {
+    font-size: 1.3em; /* Larger price */
+    color: #EC2C3C; /* Brand color for price */
+    font-weight: 800; /* Extra bold price */
+    margin-top: auto; /* Pushes price to the bottom if content above is short */
+}
+
+.quick-view-button {
+    display: block;
+    width: calc(100% - 40px); /* Adjusted width to account for padding */
+    margin: 15px auto 0 auto; /* Centered with top margin */
+    padding: 12px 0;
+    background-color: #f0f0f0; /* Light grey background */
+    color: #555;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    /* border-radius: 8px; Removed border-radius */
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quick-view-button:hover {
+    background-color: #EC2C3C; /* Brand color on hover */
+    color: white;
+    box-shadow: 0 2px 8px rgba(236, 44, 60, 0.2);
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 1024px) {
+    .hero-section {
+        height: 450px; /* Slightly smaller hero on medium screens */
+        margin-top: 40px;
+    }
+    .hero-title {
+        font-size: 3em;
+    }
+    .hero-subtitle {
+        font-size: 1.1em;
+    }
+    .controls-section {
+        padding: 15px 25px;
+        flex-direction: column; /* Stack filter and sort vertically */
+        align-items: flex-start;
+    }
+    .sort-options {
+        justify-content: flex-start; /* Align sort options to start when stacked */
+        width: 100%;
+    }
+    .filter-button {
+        width: 100%; /* Full width for filter button */
+        padding: 12px 20px;
+        height: auto;
+    }
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Smaller min-width for cards */
+        gap: 20px;
+    }
+    .product-card {
+        height: 380px; /* Adjust card height */
+        /* border-radius: 10px; Removed border-radius */
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 15px 0 40px 0;
+    }
+    .hero-section {
+        height: 350px; /* Smaller hero on tablets */
+        margin-top: 30px;
+        /* border-radius: 8px; Removed border-radius */
+    }
+    .hero-overlay {
+        padding-left: 5%;
+    }
+    .hero-title {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+    .hero-subtitle {
+        font-size: 1em;
+    }
+    .controls-section {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+    .sort-options span {
+        font-size: 16px;
+    }
+    .sort-option-button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    .sort-option-button.active {
+        padding: 8px 15px;
+    }
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Even smaller min-width */
+        gap: 15px;
+    }
+    .product-card {
+        height: 320px; /* Adjust card height */
+        /* border-radius: 10px; Removed border-radius */
+    }
+    .product-name {
+        font-size: 1em;
+    }
+    .product-price {
+        font-size: 1.1em;
+    }
+    .quick-view-button {
+        width: calc(100% - 30px);
+        margin-top: 10px;
+        padding: 10px 0;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 10px 0 30px 0;
+    }
+    .hero-section {
+        height: 250px; /* Smallest hero on mobile */
+        margin-top: 20px;
+    }
+    .hero-overlay {
+        padding-left: 5%;
+    }
+    .hero-title {
+        font-size: 1.8em;
+        margin-bottom: 8px;
+    }
+    .hero-subtitle {
+        font-size: 0.9em;
+    }
+    .controls-section {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 10px 15px;
+        gap: 10px;
+    }
+    .sort-options {
+        flex-direction: column; /* Stack sort options vertically */
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .sort-options span {
+        font-size: 15px;
+    }
+    .sort-option-button,
+    .sort-option-button.active {
+        width: 100%; /* Full width for sort buttons */
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+    }
+    .product-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        gap: 10px;
+    }
+    .product-card {
+        max-width: 95%; /* Make cards slightly smaller than full width */
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .product-card img {
+        height: 60%; /* Adjust image height */
+    }
+    .product-name {
+        font-size: 0.95em;
+    }
+    .product-price {
+        font-size: 1em;
+    }
+    .quick-view-button {
+        width: calc(100% - 20px);
+        padding: 8px 0;
+        font-size: 0.85em;
+    }
+}
