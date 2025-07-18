@@ -51,7 +51,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)); /* Stronger gradient for text contrast */
+
     display: flex;
     align-items: center;
     padding-left: 8%; /* Responsive padding */
@@ -91,10 +91,10 @@ body {
     max-width: 1200px; /* Max width for consistency */
     margin-top: 40px; /* Spacing from hero section */
     margin-bottom: 40px; /* Spacing to product grid */
-    background-color: white;
+   
     padding: 18px 30px; /* Increased padding */
     /* border-radius: 10px; Removed border-radius */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Soft shadow */
+     /* Soft shadow */
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
     gap: 20px; /* Gap between filter button and sort options */
 }
