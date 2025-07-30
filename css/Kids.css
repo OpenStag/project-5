@@ -112,6 +112,9 @@ body {
 
     padding: 1px 20px 385px 50px;
     border-radius: 6px;
+    background-image: url('../image//kids//img1.jpg');
+    background-size: cover;
+    
 }
 .hero-para {
     padding: 1px 20px 170px 50px;
@@ -153,7 +156,7 @@ body {
 .category-card img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     background-color: #f8f8f8;
     padding: 8px;
 }
@@ -207,7 +210,7 @@ body {
     width: 100%;
 
     height: 260px;
-    object-fit: contain;
+    object-fit: cover;
     background-color: #f8f8f8;
     border-radius: 4px;
     margin-bottom: 12px;
